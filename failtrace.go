@@ -2,7 +2,7 @@
 // Date: 2025-06-12,
 // License: MIT
 //
-// Package logger provides a simple request-scoped logging mechanism that buffers log entries
+// Package failtrace provides a simple request-scoped logging mechanism that buffers log entries
 // and writes them out only when an error occurs or when explicitly flushed.
 //
 // Each request gets a unique ID, and logs are written to stderr by default.
@@ -12,8 +12,8 @@
 // Usage:
 //
 //		func handleRequest(ctx context.Context) error {
-//		    ctx = logger.WithLogger(ctx)
-//		    log := logger.FromContext(ctx)
+//		    ctx = failtrace.WithLogger(ctx)
+//		    log := failtrace.FromContext(ctx)
 //		    defer log.FlushIf(nil)
 //
 //		    log.Debug("Processing request")
@@ -30,7 +30,7 @@
 //		}
 //
 // For more usage examples, see examples in the package documentation.
-package logger
+package failtrace
 
 import (
 	"context"

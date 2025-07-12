@@ -30,19 +30,19 @@ log trace on fail
 package main
 
 import (
-	"context"
+    "context"
 
-	"github.com/IbrahimShahzad/failtrace/logger"
+    "github.com/IbrahimShahzad/failtrace/logger"
 )
 
 func main() {
-	ctx := logger.WithLogger(context.Background())
-	handle(ctx)
+    ctx := logger.WithLogger(context.Background())
+    handle(ctx)
 }
 
 func handle(ctx context.Context) {
-	log := logger.FromContext(ctx)
-	log.Debug("handling request")
+    log := logger.FromContext(ctx)
+    log.Debug("handling request")
     err := someF(); err != nil {
         log.FlushIf(err)
     }

@@ -32,16 +32,16 @@ package main
 import (
     "context"
 
-    "github.com/IbrahimShahzad/failtrace/logger"
+    "github.com/IbrahimShahzad/failtrace"
 )
 
 func main() {
-    ctx := logger.WithLogger(context.Background())
+    ctx := failtrace.WithLogger(context.Background())
     handle(ctx)
 }
 
 func handle(ctx context.Context) {
-    log := logger.FromContext(ctx)
+    log := failtrace.FromContext(ctx)
     log.Debug("handling request")
     err := someF(); err != nil {
         log.FlushIf(err)
